@@ -102,25 +102,30 @@ while True:
 
     else:
         if int(interm) != 0:
-            sender = int(interm)
             shooter = 1
+            # sender = int(interm)
             letter.append(interm)
+            if len(letter) == 4:
+                # send_command(letter)
+                if letter[3] == '1':
+                    letter = letter[0:3]
+                    # sender = int(interm)
+                # elif letter[3:6] == ['3','4','2']:
+                else:
+                    letter = []
+                    sender = 5 # to erase from the interface the previous letter 
+                # print(letter)
+                send_command(''.join(letter))
+                # print(''.join(letter))
+                letter = []
+            else:
+                sender = int(interm)
 
         else:
             sender = 0
             shooter = 0
 
-        if len(letter) == 6:
-            # send_command(letter)
-            if letter[3:6] == ['4','4','1']:
-                letter = letter[0:3]
-            # elif letter[3:6] == ['3','4','2']:
-            else:
-                letter = []
-            # print(letter)
-            send_command(''.join(letter))
-            # print(''.join(letter))
-            letter = []
+        
 
     # print(letter)
     #smd['sensor'] = sender

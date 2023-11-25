@@ -445,7 +445,9 @@ class LetterSelectionScreen(object):
 
             print(f"Received from server: {index}")
 
-            if index != 0:
+            if index == 5:
+                self.word_list.pop()
+            elif index != 0 & index != 5:
                 self.key_list.append(index)
                 if self.selecting_col:
                     self.highlighted_col = index - 1
