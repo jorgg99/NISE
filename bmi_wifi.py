@@ -62,6 +62,7 @@ print('flamina')
 shooter = 0
 letter = []
 bufferL = []
+sender = 0
 # counter = 0
 # %%
 
@@ -90,8 +91,6 @@ while True:
     for i, sensorV in enumerate(sensorVal):
         if int(sensorV) > 2500:
             interm = str(i + 1)
-
-        
 
     # past_ind = interm
 
