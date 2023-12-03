@@ -26,6 +26,8 @@ The interface displays a letter when three numbers are received, effectively tra
   <p>Figure 1: Circuit design of the machine encoder</p>
 </div>
 
+NOTE: does not require a workaround to work (works "out of the box").
+
 ## Decoder
 
 The circuit design for the machine decoder is depicted in Figure 2. In this setup, four vibrotactile motors are employed to convey messages received. The ESP32 microcontroller, connected via WiFi, receives a message consisting of three numbers from the encoder side. For each number received, the corresponding motor vibrates for 500 ms and then pauses for 250 ms. Upon receiving a single letter, the user can utilize a push button integrated into the circuit to access the next letter. This push button functionality enhances the participant's ability to distinguish between different messages and decode them more accurately. Consequently, it contributes to the creation of a more reliable communication system.
@@ -34,6 +36,9 @@ The circuit design for the machine decoder is depicted in Figure 2. In this setu
   <img src="figures/Receiver.png" alt="Receiver" width="300">
   <p>Figure 2: Circuit design of the machine decoder</p>
 </div>
+
+NOTE: In order to connect the ESP32 to a Wifi network, you must set the ssid and password of the network in the code and compile it.
+Also, when running this for the first time, make sure to take note of the ip address of the ESP32 and input it to the encoder.
 
 ## User Interface
 
@@ -44,6 +49,8 @@ The user interface is structured as a 4x4 grid, comprising 16 blocks, each housi
   <p>Figure 3: Graphical User Interface</p>
 </div>
 
+NOTE: does not require a workaround to work (works "out of the box").
+
 ## Communication Between Systems
 
 The communication between the encoder circuit and the communication script is established through serial communication. Subsequently, a UDP socket communication method is employed to transmit messages from the communication script to the user interface script on the encoder side. The ESP32 facilitates WiFi communication, allowing the transmission of messages from the communication script in the encoder to the decoder side. In the decoder, the ESP32 receives these messages and utilizes them as input for the vibrotactile motors. Figure 4 illustrates the communication types between subsystems in the system.
@@ -52,6 +59,9 @@ The communication between the encoder circuit and the communication script is es
   <img src="figures/overall2.png" alt="overall" width="300">
   <p>Figure 4: Overall System Design</p>
 </div>
+
+NOTE: In order to properly connect the Encoder and the Decoder, both host computer and decoding ESP32 must be connected to the same Wifi network.
+Also, the IP address of the ESP32 should be specified in the variable "arduino_host" (will vary depending on the wifi network). 
 
 ## How to run the files?
 
